@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexandra "Aleh" — Wikipédia, a enciclopédia do coração de Erick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6F0;
+    --paper:#FFFDFB;
+    --ink:#2E2330;
+    --ink-soft:#6b5a6e;
+    --purple:#6B3FA0;
+    --purple-deep:#4A2A70;
+    --purple-light:#cdb8e6;
+    --purple-pale:#F3ECFA;
+    --wine:#7A2E3B;
+    --gold:#C9A66B;
+    --border:#E2D4EA;
+    --link:#5d3a92;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    font-family:'Lora', serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+  }
+
+  /* ===== floating particles ===== */
+  .petal{
+    position:fixed;
+    top:-5%;
+    pointer-events:none;
+    z-index:999;
+    opacity:.55;
+    animation:fall linear infinite;
+  }
+  @keyframes fall{
+    0%{ transform:translateY(-5vh) translateX(0) rotate(0deg); }
+    100%{ transform:translateY(105vh) translateX(40px) rotate(360deg); }
+  }
+
+  /* ===== top bar ===== */
+  .wiki-topbar{
+    background:linear-gradient(135deg,var(--purple-deep),var(--purple));
+    color:#fff;
+    padding:.6rem 1.2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:.5rem;
+    font-family:'Lora',serif;
+    font-size:.85rem;
+    letter-spacing:.03em;
+  }
+  .wiki-topbar .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.1rem;
+    letter-spacing:.06em;
+  }
+  .wiki-topbar .brand small{
+    display:block;
+    font-family:'Lora',serif;
+    font-weight:400;
+    font-size:.65rem;
+    letter-spacing:.08em;
+    opacity:.85;
+    text-transform:uppercase;
+  }
+  .wiki-topbar nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:1rem;
+    opacity:.9;
+    border-bottom:1px dotted rgba(255,255,255,.4);
+    font-size:.8rem;
+  }
+
+  /* ===== layout ===== */
+  .wiki-container{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    gap:0;
+    align-items:flex-start;
+  }
+  .wiki-sidebar{
+    width:200px;
+    flex-shrink:0;
+    padding:1.5rem 1rem;
+    border-right:1px solid var(--border);
+    font-size:.82rem;
+    color:var(--ink-soft);
+    display:none;
+  }
+  @media(min-width:900px){
+    .wiki-sidebar{ display:block; }
+  }
+  .wiki-sidebar h4{
+    font-family:'Playfair Display',serif;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--purple-deep);
+    margin:1.4rem 0 .5rem;
+    border-bottom:1px solid var(--border);
+    padding-bottom:.3rem;
+  }
+  .wiki-sidebar h4:first-child{margin-top:0;}
+  .wiki-sidebar ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .wiki-sidebar li{
+    padding:.18rem 0;
+  }
+  .wiki-sidebar a{
+    color:var(--link);
+    text-decoration:none;
+  }
+  .wiki-sidebar a:hover{ text-decoration:underline; }
+
+  .wiki-main{
+    flex:1;
+    padding:1.6rem 2.2rem 4rem;
+    min-width:0;
+  }
+
+  /* ===== notices ===== */
+  .notice{
+    background:var(--purple-pale);
+    border:1px solid var(--purple-light);
+    border-left:5px solid var(--purple);
+    padding:.7rem 1rem;
+    font-size:.85rem;
+    margin-bottom:.6rem;
+    border-radius:2px;
+    color:var(--ink-soft);
+  }
+  .notice.disambig{
+    border-left-color:var(--wine);
+    font-style:italic;
+  }
+  .notice b{ color:var(--ink); }
+
+  /* ===== title area ===== */
+  .page-title{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:2.6rem;
+    margin:1.2rem 0 .2rem;
+    border-bottom:3px solid var(--border);
+    padding-bottom:.5rem;
+    color:var(--ink);
+  }
+  .page-title .ipa{
+    font-family:'Lora',serif;
+    font-weight:400;
+    font-size:1rem;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .page-tabs{
+    font-size:.8rem;
+    color:var(--ink-soft);
+    margin:.4rem 0 1.4rem;
+    display:flex;
+    gap:1.1rem;
+    flex-wrap:wrap;
+  }
+  .page-tabs span{ border-bottom:2px solid transparent; }
+  .page-tabs span.active{
+    border-bottom-color:var(--purple);
+    color:var(--purple-deep);
+    font-weight:600;
+  }
+
+  /* ===== infobox ===== */
+  .infobox{
+    float:right;
+    width:300px;
+    margin:0 0 1.2rem 1.6rem;
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 6px 24px -10px rgba(74,42,112,.35);
+    font-size:.86rem;
+  }
+  .infobox-title{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    text-align:center;
+    background:linear-gradient(135deg,var(--purple-pale),#fff);
+    padding:.7rem .5rem;
+    font-size:1.15rem;
+    color:var(--purple-deep);
+    border-bottom:1px solid var(--border);
+  }
+  .infobox-img{
+    height:230px;
+    margin:0 auto;
+    background:
+      radial-gradient(circle at 25% 20%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+      radial-gradient(circle at 70% 35%, rgba(255,255,255,.4) 0 1.5px, transparent 2.5px),
+      radial-gradient(circle at 50% 70%, rgba(255,255,255,.5) 0 2px, transparent 3px),
+      radial-gradient(circle at 85% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 2.5px),
+      radial-gradient(circle at 15% 60%, rgba(255,255,255,.4) 0 1.5px, transparent 2.5px),
+      radial-gradient(circle at 40% 45%, rgba(255,255,255,.45) 0 2px, transparent 3px),
+      linear-gradient(160deg, var(--purple) 0%, var(--purple-deep) 55%, var(--wine) 100%);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .infobox-img::after{
+    content:"♥";
+    font-size:3.4rem;
+    color:rgba(255,255,255,.85);
+    text-shadow:0 0 18px rgba(255,255,255,.6);
+  }
+  .infobox-caption{
+    font-size:.74rem;
+    text-align:center;
+    color:var(--ink-soft);
+    font-style:italic;
+    padding:.5rem .8rem;
+    border-bottom:1px solid var(--border);
+    background:#fbf9fd;
+  }
+  .infobox table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .infobox td, .infobox th{
+    padding:.45rem .7rem;
+    vertical-align:top;
+    border-top:1px solid var(--border);
+    text-align:left;
+  }
+  .infobox th{
+    width:38%;
+    font-weight:600;
+    color:var(--purple-deep);
+    font-family:'Lora',serif;
+    font-size:.8rem;
+  }
+  .infobox td{ font-size:.82rem; }
+  .infobox-section{
+    background:var(--purple-pale);
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    text-align:center;
+    padding:.4rem;
+    font-size:.85rem;
+    color:var(--purple-deep);
+    border-top:1px solid var(--border);
+  }
+
+  /* ===== content ===== */
+  .lead{
+    font-size:1.05rem;
+    margin-top:0;
+  }
+  h2{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-size:1.55rem;
+    color:var(--purple-deep);
+    border-bottom:1px solid var(--border);
+    padding-bottom:.3rem;
+    margin-top:2.4rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:.6rem;
+  }
+  h2 .edit-link{
+    font-family:'Lora',serif;
+    font-size:.72rem;
+    font-weight:400;
+    color:var(--link);
+    white-space:nowrap;
+  }
+  h3{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:1.18rem;
+    color:var(--ink);
+    margin-top:1.6rem;
+  }
+  p{ margin:0 0 1rem; }
+  a{ color:var(--link); }
+  sup.cite{
+    font-size:.72em;
+    color:var(--purple);
+    font-weight:600;
+  }
+  ul, ol{ padding-left:1.4rem; }
+  li{ margin-bottom:.35rem; }
+
+  blockquote{
+    margin:1.4rem 0;
+    padding:.9rem 1.3rem;
+    border-left:4px solid var(--gold);
+    background:var(--purple-pale);
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--ink);
+    border-radius:0 4px 4px 0;
+  }
+  blockquote cite{
+    display:block;
+    margin-top:.5rem;
+    font-family:'Lora',serif;
+    font-style:normal;
+    font-size:.78rem;
+    color:var(--ink-soft);
+  }
+
+  .script-line{
+    font-family:'Great Vibes', cursive;
+    font-size:2.1rem;
+    color:var(--purple-deep);
+    text-align:center;
+    margin:1.6rem 0;
+    line-height:1.4;
+  }
+
+  /* ===== TOC ===== */
+  .toc{
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:1rem 1.4rem;
+    display:inline-block;
+    max-width:340px;
+    margin:.6rem 0 1.6rem;
+    font-size:.88rem;
+  }
+  .toc-title{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    margin-bottom:.5rem;
+    text-align:center;
+  }
+  .toc ol{
+    margin:0;
+    padding-left:1.3rem;
+  }
+  .toc a{ text-decoration:none; }
+  .toc a:hover{ text-decoration:underline; }
+
+  /* ===== tables ===== */
+  .data-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:1rem 0 1.6rem;
+    font-size:.92rem;
+    background:var(--paper);
+    border:1px solid var(--border);
+  }
+  .data-table th, .data-table td{
+    border:1px solid var(--border);
+    padding:.5rem .8rem;
+    text-align:left;
+  }
+  .data-table th{
+    background:var(--purple-pale);
+    color:var(--purple-deep);
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+  }
+  .data-table tr:nth-child(even) td{ background:#fdfbfe; }
+
+  /* ===== timeline ===== */
+  .timeline{
+    list-style:none;
+    padding:0;
+    margin:1.4rem 0;
+    border-left:3px solid var(--purple-light);
+    margin-left:.6rem;
+  }
+  .timeline li{
+    position:relative;
+    padding:.2rem 0 1.2rem 1.5rem;
+  }
+  .timeline li::before{
+    content:"";
+    position:absolute;
+    left:-9px;
+    top:.35rem;
+    width:14px;
+    height:14px;
+    background:var(--purple);
+    border:3px solid var(--cream);
+    border-radius:50%;
+  }
+  .timeline .date{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    color:var(--purple-deep);
+    display:block;
+    margin-bottom:.15rem;
+  }
+
+  /* ===== study box ===== */
+  .study{
+    border:1px solid var(--border);
+    background:var(--paper);
+    padding:1.2rem 1.4rem;
+    border-radius:6px;
+    margin:1rem 0 1.6rem;
+  }
+  .study h4{
+    font-family:'Playfair Display',serif;
+    margin:0 0 .2rem;
+    font-size:1.05rem;
+  }
+  .study .meta{
+    font-size:.78rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin-bottom:.8rem;
+  }
+  .study h5{
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--purple-deep);
+    margin:1rem 0 .3rem;
+  }
+
+  /* ===== legacy ===== */
+  .legacy-box{
+    background:linear-gradient(135deg, var(--purple-pale), #fff 70%);
+    border:1px solid var(--purple-light);
+    border-radius:8px;
+    padding:1.6rem 1.8rem;
+    margin:1.2rem 0 2rem;
+  }
+
+  /* ===== references ===== */
+  .references{
+    font-size:.82rem;
+    color:var(--ink-soft);
+    padding-left:1.4rem;
+  }
+  .references li{ margin-bottom:.5rem; }
+
+  /* ===== categories / footer ===== */
+  .categories{
+    margin-top:2.5rem;
+    padding-top:1rem;
+    border-top:1px solid var(--border);
+    font-size:.82rem;
+    color:var(--ink-soft);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem;
+  }
+  .categories .tag{
+    display:inline-block;
+    background:var(--purple-pale);
+    border:1px solid var(--purple-light);
+    color:var(--purple-deep);
+    padding:.25rem .7rem;
+    border-radius:999px;
+    white-space:nowrap;
+    font-style:italic;
+  }
+  .page-footer{
+    text-align:center;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    padding:1.6rem 1rem 3rem;
+    border-top:1px solid var(--border);
+    margin-top:2rem;
+    font-style:italic;
+  }
+
+  .clearfix::after{ content:""; display:table; clear:both; }
+
+  /* mobile tweaks */
+  @media (max-width:640px){
+    .infobox{ float:none; width:100%; margin:0 0 1.4rem; }
+    .wiki-main{ padding:1.2rem 1.1rem 3rem; }
+    .page-title{ font-size:1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wiki-topbar">
+  <div class="brand">
+    WikiAleh
+    <small>a enciclopédia que Erick atualiza todos os dias</small>
+  </div>
+  <nav>
+    <a href="#sec-legado">Legado</a>
+    <a href="#sec-estatisticas">Estatísticas</a>
+    <a href="#sec-vertambem">Ver também</a>
+  </nav>
+</div>
+
+<div class="wiki-container">
+
+  <aside class="wiki-sidebar">
+    <h4>Navegação</h4>
+    <ul>
+      <li><a href="#sec-historia">História e origem</a></li>
+      <li><a href="#sec-primeiras">Primeiras aparições</a></li>
+      <li><a href="#sec-ascensao">Ascensão a pessoa favorita</a></li>
+      <li><a href="#sec-personalidade">Personalidade</a></li>
+      <li><a href="#sec-caracteristicas">Características notáveis</a></li>
+      <li><a href="#sec-impacto">Impacto cultural</a></li>
+      <li><a href="#sec-feitos">Feitos históricos</a></li>
+      <li><a href="#sec-frases">Frases famosas</a></li>
+      <li><a href="#sec-curiosidades">Curiosidades</a></li>
+      <li><a href="#sec-linha-do-tempo">Linha do tempo</a></li>
+      <li><a href="#sec-estatisticas">Estatísticas</a></li>
+      <li><a href="#sec-estudos">Estudos científicos</a></li>
+      <li><a href="#sec-legado">Legado</a></li>
+      <li><a href="#sec-vertambem">Ver também</a></li>
+      <li><a href="#sec-referencias">Referências</a></li>
+    </ul>
+    <h4>Idiomas</h4>
+    <ul>
+      <li>Português</li>
+      <li>Saudades (em revisão)</li>
+      <li>Para sempre (proposto)</li>
+    </ul>
+    <h4>Ferramentas</h4>
+    <ul>
+      <li>Imprimir e guardar para sempre</li>
+      <li>Exportar para o coração</li>
+      <li>Página vigiada por: Erick</li>
+    </ul>
+  </aside>
+
+  <main class="wiki-main">
+
+    <div class="notice">
+      <b>Esta página está protegida.</b> Devido a um histórico de tentativas de subestimação da importância do assunto, esta página só pode ser editada por Erick, e mesmo assim, ele tende a só adicionar coisas.
+    </div>
+    <div class="notice disambig">
+      Você pode estar procurando por <b>Alexandra</b> (nome próprio comum, sem graça nenhuma) ou <b>Aleh</b> (a única definição que importa a partir de 19 de janeiro de 2026). Este artigo trata da segunda.
+    </div>
+
+    <h1 class="page-title">Alexandra "Aleh" <span class="ipa">(também conhecida como Leh)</span></h1>
+    <div class="page-tabs">
+      <span class="active">Artigo</span>
+      <span>Status: namorando desde 19/01/2026</span>
+      <span>Edições: 1.247.382 (todas por Erick)</span>
+      <span>Nível de importância: máximo</span>
+    </div>
+
+    <div class="clearfix">
+      <div class="infobox">
+        <div class="infobox-title">Alexandra "Aleh"</div>
+        <div class="infobox-img"></div>
+        <div class="infobox-caption">Imagem real não disponível por motivos de segurança nacional. Nível de beleza considerado material classificado.</div>
+        <table>
+          <tr><th>Apelidos</th><td>Aleh, Leh, bb, morr, amorr, bbzinha, minha princesa</td></tr>
+          <tr><th>Local de residência</th><td>Estado do Rio de Janeiro, Brasil</td></tr>
+          <tr><th>Ocupação</th><td>Pessoa favorita do universo, em tempo integral</td></tr>
+          <tr><th>Time do coração</th><td>Botafogo de Futebol e Regatas</td></tr>
+          <tr><th>Cor oficial</th><td><span style="display:inline-block;width:12px;height:12px;background:var(--purple);border-radius:50%;vertical-align:middle;margin-right:6px;"></span>Roxo</td></tr>
+          <tr><th>Gêneros musicais</th><td>MPB, Romance</td></tr>
+          <tr><th>Frases mais ditas</th><td>"Juro", "hum", "Chato", 🙄</td></tr>
+          <tr><th>Cônjuge</th><td>Nenhum (ainda). Vaga em processo de candidatura permanente por Erick</td></tr>
+          <tr><th>Namorando desde</th><td>19 de janeiro de 2026</td></tr>
+          <tr><th>Distância oficial</th><td>~1.700 km (Salvador, BA → Rio de Janeiro, RJ)</td></tr>
+          <tr><th>Distância sentimental</th><td>0 km (não confirmada por satélite, confirmada pelo peito)</td></tr>
+          <tr><th>Site irmão</th><td>Erick (Wikipédia, artigo classificado como "rascunho permanente")</td></tr>
+        </table>
+        <div class="infobox-section">Status atual</div>
+        <table>
+          <tr><th>Sendo amada</th><td>Sim, ativamente</td></tr>
+          <tr><th>Sentindo falta de Erick</th><td>Provavelmente</td></tr>
+          <tr><th>Achando ele chato</th><td>Sim, mas com carinho</td></tr>
+        </table>
+      </div>
+
+      <p class="lead">
+        <b>Alexandra</b>, mais conhecida como <b><i>Aleh</i></b> ou <b><i>Leh</i></b>, é uma adolescente brasileira nascida e criada no estado do Rio de Janeiro, reconhecida principalmente por seu título não oficial, porém amplamente reconhecido, de <b>pessoa favorita de Erick</b><sup class="cite">[1]</sup>. Torcedora declarada do Botafogo de Futebol e Regatas, leitora frequente, fã de MPB e detentora de uma energia descrita por fontes próximas como "incrível, quase impossível de acompanhar"<sup class="cite">[2]</sup>, Aleh tornou-se, a partir de 19 de janeiro de 2026, o assunto mais editado, mais pensado e mais sentido de toda a Wikipédia pessoal de Erick.
+      </p>
+      <p>
+        Apesar da distância de aproximadamente 1.700 quilômetros entre sua residência, no Rio de Janeiro, e a de Erick, na Bahia, Aleh ocupa atualmente a posição mais alta possível em qualquer ranking informal já criado por ele, à frente de categorias historicamente difíceis de superar, como "comida favorita", "time de futebol" e "vontade de dormir"<sup class="cite">[3]</sup>.
+      </p>
+    </div>
+
+    <div class="toc">
+      <div class="toc-title">Conteúdo</div>
+      <ol>
+        <li><a href="#sec-historia">História e origem</a></li>
+        <li><a href="#sec-primeiras">Primeiras aparições na vida de Erick</a></li>
+        <li><a href="#sec-ascensao">Ascensão ao posto de pessoa favorita</a></li>
+        <li><a href="#sec-personalidade">Personalidade</a></li>
+        <li><a href="#sec-caracteristicas">Características notáveis</a></li>
+        <li><a href="#sec-impacto">Impacto cultural no universo de Erick</a></li>
+        <li><a href="#sec-feitos">Principais feitos históricos</a></li>
+        <li><a href="#sec-frases">Frases famosas</a></li>
+        <li><a href="#sec-curiosidades">Curiosidades</a></li>
+        <li><a href="#sec-linha-do-tempo">Linha do tempo</a></li>
+        <li><a href="#sec-estatisticas">Estatísticas absurdas</a></li>
+        <li><a href="#sec-estudos">Estudos científicos sobre Aleh</a></li>
+        <li><a href="#sec-legado">Legado</a></li>
+        <li><a href="#sec-vertambem">Ver também</a></li>
+        <li><a href="#sec-referencias">Referências</a></li>
+      </ol>
+    </div>
+
+    <h2 id="sec-historia">1. História e origem <span class="edit-link">[editar]</span></h2>
+    <p>
+      Os registros sobre o período da existência de Aleh anterior a janeiro de 2026 são, segundo a documentação oficial de Erick, "incompletos, mas com certeza incríveis"<sup class="cite">[4]</sup>. Sabe-se que Aleh cresceu no estado do Rio de Janeiro, território historicamente associado a praia, calor, sotaque carioca carregado e, mais importante, ao Botafogo de Futebol e Regatas, time pelo qual desenvolveu uma paixão considerada por Erick "equivocada, mas fofa".
+    </p>
+    <p>
+      Essa rivalidade futebolística não é um detalhe qualquer. Erick é torcedor do Flamengo, e Aleh, segundo o próprio, "odeia o Flamengo só porque é melhor que o time dela"<sup class="cite">[5]</sup>. O que poderia ter se tornado um conflito diplomático de proporções continentais transformou-se, na prática, em uma das fontes mais férteis de implicância carinhosa do casal, provando que o amor é, de fato, capaz de superar até mesmo um clássico Fla-Bot.
+    </p>
+    <p>
+      Antes de janeiro de 2026, há ainda menos clareza sobre os hobbies, rotina e cotidiano de Aleh. O que se sabe com certeza é que ela gosta de ler, recentemente passou a se interessar e republicar conteúdos sobre vôlei, e nutre um amor profundo por cachorros, apesar de ainda não ter um<sup class="cite">[6]</sup>. Esse último ponto, inclusive, já consta em planos futuros descritos na seção <a href="#sec-legado">Legado</a> deste artigo.
+    </p>
+
+    <h2 id="sec-primeiras">2. Primeiras aparições na vida de Erick <span class="edit-link">[editar]</span></h2>
+    <p>
+      A primeira aparição documentada de Aleh na vida de Erick ocorreu através do TikTok, plataforma responsável por uma quantidade desproporcional de relacionamentos, memes e crises existenciais na década de 2020<sup class="cite">[7]</sup>. Os detalhes exatos do primeiro contato permanecem, segundo Erick, "guardados", mas o resultado é amplamente conhecido: em 19 de janeiro de 2026, a relação foi oficializada, marcando o que este artigo considera o evento fundador de toda a era atual.
+    </p>
+    <p>
+      Diferente de outras "primeiras aparições" registradas na história pessoal de Erick (que incluem, mas não se limitam a, novelas que ele assistiu sem prestar atenção e personagens de jogos que ele esqueceu no dia seguinte), a aparição de Aleh teve um efeito imediato e permanente. Não houve fase de "ah, é só mais uma pessoa legal". Segundo o próprio Erick, ele "sempre esteve no romance" desde o início<sup class="cite">[8]</sup>, sem qualquer cerimônia, negação ou fase de "estamos só conversando".
+    </p>
+
+    <h2 id="sec-ascensao">3. Ascensão ao posto de pessoa favorita <span class="edit-link">[editar]</span></h2>
+    <p>
+      A trajetória de Aleh até o posto mais alto da hierarquia afetiva de Erick pode ser resumida em três grandes promoções, todas ocorridas em um intervalo de tempo notavelmente curto:
+    </p>
+    <ol>
+      <li><b>Garota do TikTok</b> (cargo inicial, duração: poucos dias). Função: existir e, sem querer, ser perfeita.</li>
+      <li><b>Namorada</b> (promovida em 19 de janeiro de 2026). Função: tornar-se o assunto principal de praticamente todas as conversas de Erick com qualquer pessoa.</li>
+      <li><b>Pessoa favorita do universo / futura esposa</b> (cargo atual, sem data prevista de fim). Função: receber sites inteiros dedicados a ela, incluindo o presente artigo.</li>
+    </ol>
+    <p>
+      É importante destacar que essa ascensão não seguiu o caminho tradicional de "conhecer aos poucos". Como o próprio Erick descreve, mesmo sem saber tudo sobre ela, ele já amava tudo, inclusive as coisas que ela mesma classifica como defeitos<sup class="cite">[9]</sup>. Isso configura, segundo análises internas, um caso raro de <i>amor por adesão antecipada</i>, no qual o "termo de compromisso" é assinado antes mesmo de o "manual de instruções" ser lido por completo.
+    </p>
+
+    <h2 id="sec-personalidade">4. Personalidade <span class="edit-link">[editar]</span></h2>
+    <p>
+      A personalidade de Aleh é frequentemente descrita usando quatro adjetivos centrais, que juntos formam o que pesquisadores não credenciados chamam de "Tetraedro Aleh": <b>estressada</b>, <b>carinhosa</b>, <b>maluca</b> e <b>cheia de energia</b>.
+    </p>
+    <ul>
+      <li><b>Estressada</b>: capaz de passar de calma a "já chega" em frações de segundo, geralmente envolvendo o Flamengo, alguma demora de resposta, ou simplesmente o dia ter sido longo.</li>
+      <li><b>Carinhosa</b>: apesar do item anterior, Aleh é descrita como genuinamente afetuosa, com gestos constantes de carinho mesmo à distância.</li>
+      <li><b>Maluca</b>: categoria que inclui, mas não se limita a, áudios enviados em horários e tons completamente imprevisíveis, ideias aleatórias e mudanças de assunto sem aviso prévio.</li>
+      <li><b>Energia incrível</b>: Aleh é, segundo Erick, capaz de transformar uma conversa qualquer em algo memorável apenas com a forma como fala, ri ou reage.</li>
+    </ul>
+    <p>
+      Um detalhe importante, e que este artigo faz questão de registrar com a maior clareza possível: Erick não enxerga essas características como falhas a serem corrigidas. Pelo contrário, ele afirma amar até mesmo as coisas que a própria Aleh classifica como defeitos<sup class="cite">[9]</sup>. Para os fins desta enciclopédia, isso será tratado não como "personalidade com ressalvas", mas como "personalidade completa, aprovada sem emendas".
+    </p>
+
+    <h2 id="sec-caracteristicas">5. Características notáveis <span class="edit-link">[editar]</span></h2>
+    <p>
+      Algumas características de Aleh são tão recorrentes que passaram a funcionar como uma espécie de "assinatura" reconhecível em qualquer conversa:
+    </p>
+    <table class="data-table">
+      <tr><th>Característica</th><th>Descrição</th></tr>
+      <tr><td>"Juro"</td><td>Usado para confirmar absolutamente qualquer afirmação, de fofocas a fatos do cotidiano. Função: dar credibilidade extra a algo que, na maioria das vezes, já era óbvio.</td></tr>
+      <tr><td>"Hum"</td><td>Resposta multifuncional. Pode significar concordância, dúvida, desinteresse fingido ou os quatro ao mesmo tempo, dependendo do contexto e do tom.</td></tr>
+      <tr><td>"Chato"</td><td>Apelido carinhoso oficial de Erick, usado em praticamente qualquer situação onde ele faça uma piada, implique com algo, ou simplesmente exista.</td></tr>
+      <tr><td>🙄 (emoji de olhos revirados)</td><td>Resposta visual padrão para comentários considerados, ao mesmo tempo, absurdos e exatamente do tipo que ela esperava.</td></tr>
+      <tr><td>Áudios "malucos"</td><td>Mensagens de voz enviadas em qualquer horário, com qualquer tom, sobre qualquer assunto, e que se tornaram, segundo Erick, uma das coisas que mais lhe trazem saudade<sup class="cite">[10]</sup>.</td></tr>
+    </table>
+
+    <h2 id="sec-impacto">6. Impacto cultural no universo de Erick <span class="edit-link">[editar]</span></h2>
+    <p>
+      Estudos informais conduzidos pelo próprio Erick (sem comitê de ética, sem amostragem representativa, mas com convicção total) apontam que, antes de 19 de janeiro de 2026, o "universo de Erick" operava em tons de cinza. Não no sentido literal, claro, mas no sentido de que a rotina seguia um padrão neutro, sem grandes picos de entusiasmo.
+    </p>
+    <p>
+      A partir da chegada de Aleh, esse cenário mudou de forma abrupta e, segundo Erick, "de repente"<sup class="cite">[11]</sup>. O fenômeno ficou conhecido informalmente como <b>Síndrome do Mundo Colorido</b>, caracterizada por:
+    </p>
+    <ul>
+      <li>Aumento expressivo na frequência de sorrisos sozinho olhando para o celular;</li>
+      <li>Redefinição da palavra "saudade" para incluir, especificamente, áudios de uma pessoa específica<sup class="cite">[10]</sup>;</li>
+      <li>Criação espontânea de múltiplos sites, calculadoras estilizadas, simulações de física e, agora, uma Wikipédia inteira, todos com o objetivo único de demonstrar afeto;</li>
+      <li>Substituição do time favorito de discussão futebolística por "qualquer assunto que envolva Botafogo, só para poder discordar dela com carinho".</li>
+    </ul>
+    <p>
+      Em termos culturais, Aleh deixou de ser apenas "uma pessoa importante" e passou a ser tratada, dentro do universo de Erick, como uma <i>categoria própria</i>. Não existe equivalente, não existe segundo lugar, e qualquer tentativa de comparação é automaticamente descartada por falta de concorrência real.
+    </p>
+
+    <h2 id="sec-feitos">7. Principais feitos históricos <span class="edit-link">[editar]</span></h2>
+    <ol>
+      <li><b>19 de janeiro de 2026</b>: oficialização do namoro, evento que este artigo trata como o "Ano 1" da era atual.</li>
+      <li>Conquista do título de pessoa mais mencionada em conversas de Erick com amigos, familiares e, possivelmente, desconhecidos.</li>
+      <li>Sobrevivência contínua a uma distância de aproximadamente 1.700 km, mantendo o relacionamento ativo apenas com mensagens, áudios "malucos" e muita paciência.</li>
+      <li>Transformação bem-sucedida do apelido "chato" em uma das palavras mais carinhosas do vocabulário de Erick.</li>
+      <li>Inspiração direta de uma série crescente de sites românticos, incluindo, mas não se limitando a, este aqui.</li>
+      <li>Manutenção de uma rivalidade Botafogo x Flamengo sem que isso jamais tenha colocado o relacionamento em risco real, apenas em risco de discussões divertidas.</li>
+    </ol>
+
+    <h2 id="sec-frases">8. Frases famosas <span class="edit-link">[editar]</span></h2>
+    <blockquote>
+      "Juro."
+      <cite>— Aleh, em resposta a praticamente qualquer pergunta que comece com "sério?"</cite>
+    </blockquote>
+    <blockquote>
+      "Hum."
+      <cite>— Aleh, podendo significar qualquer coisa entre "concordo plenamente" e "não acredito que você disse isso"</cite>
+    </blockquote>
+    <blockquote>
+      "Chato."
+      <cite>— Aleh, para Erick, em tom que a ciência ainda não conseguiu classificar entre repreensão e carinho</cite>
+    </blockquote>
+    <p>
+      Por fim, embora não tenha sido pronunciada literalmente por Aleh, há uma frase atribuída ao "sentimento geral" de Erick em relação a ela, registrada por ele próprio durante a elaboração deste artigo:
+    </p>
+    <div class="script-line">
+      "Eu não tenho palavras pra explicar o quanto essa menina é perfeita."
+    </div>
+
+    <h2 id="sec-curiosidades">9. Curiosidades <span class="edit-link">[editar]</span></h2>
+    <ul>
+      <li>Aleh torce para o Botafogo e tem uma birra declarada com o Flamengo, time de Erick, exclusivamente pelo fato de o Flamengo ser melhor<sup class="cite">[5]</sup>.</li>
+      <li>Apesar de amar cachorros, Aleh ainda não tem um. Erick já declarou oficialmente, para os registros desta enciclopédia, a intenção de mudar isso um dia<sup class="cite">[6]</sup>.</li>
+      <li>A cor roxa não é apenas uma preferência estética de Aleh, ela foi automaticamente promovida a cor temática oficial deste site, sem votação, sem debate, e sem possibilidade de recurso.</li>
+      <li>Existe, segundo relatos, uma probabilidade extremamente alta de Aleh entrar em pânico diante de qualquer menção a "espírito imundo". Nenhum teste foi conduzido para confirmar isso, por questões de segurança e de bom senso<sup class="cite">[12]</sup>.</li>
+      <li>Aleh recentemente começou a se interessar por vôlei, e republicar conteúdos sobre o assunto, abrindo uma nova e ainda pouco estudada área de pesquisa para futuras edições deste artigo.</li>
+      <li>Todas as conversas entre Aleh e Erick são, segundo classificação oficial do próprio Erick, "bobas e engraçadas"<sup class="cite">[13]</sup>, categoria que, surpreendentemente, nunca enjoa.</li>
+    </ul>
+
+    <h2 id="sec-linha-do-tempo">10. Linha do tempo <span class="edit-link">[editar]</span></h2>
+    <ul class="timeline">
+      <li>
+        <span class="date">Era pré-Erick</span>
+        Aleh cresce no estado do Rio de Janeiro, desenvolve gosto por leitura, MPB, romances e uma paixão inabalável (e questionável, do ponto de vista de Erick) pelo Botafogo.
+      </li>
+      <li>
+        <span class="date">Data não especificada, antes de janeiro de 2026</span>
+        Primeiro contato entre Aleh e Erick, via TikTok. Início discreto de algo que mudaria completamente o "universo de cores" de Erick.
+      </li>
+      <li>
+        <span class="date">19 de janeiro de 2026</span>
+        Início oficial do namoro. Marco zero da era atual deste artigo.
+      </li>
+      <li>
+        <span class="date">Janeiro a junho de 2026</span>
+        Período de descobertas mútuas: piadas que viram rotina, áudios "malucos" que viram saudade, "chato" que vira apelido carinhoso, e o Botafogo que continua perdendo discussões para o Flamengo (segundo Erick, claro).
+      </li>
+      <li>
+        <span class="date">12 de junho de 2026, Dia dos Namorados</span>
+        Lançamento oficial desta Wikipédia, criada inteiramente por Erick como presente, e que passa a integrar oficialmente os "Principais feitos históricos" de Aleh.
+      </li>
+      <li>
+        <span class="date">Futuro (data a confirmar)</span>
+        Redução da distância de 1.700 km para 0 km, viagens conjuntas, e, segundo planos de longo prazo, casamento.
+      </li>
+    </ul>
+
+    <h2 id="sec-estatisticas">11. Estatísticas absurdas <span class="edit-link">[editar]</span></h2>
+    <table class="data-table">
+      <tr><th>Métrica</th><th>Valor</th></tr>
+      <tr><td>Distância física entre Erick e Aleh</td><td>~1.700 km</td></tr>
+      <tr><td>Distância emocional entre Erick e Aleh</td><td>0 km, valor não sujeito a alterações</td></tr>
+      <tr><td>Quantidade de vezes que Aleh disse "juro"</td><td>Incontável, estimativa em escala "sempre"</td></tr>
+      <tr><td>Proporção de áudios classificados como "malucos"</td><td>128% do total enviado (sim, mais que o total, isso não é erro de cálculo, é amor)</td></tr>
+      <tr><td>Vezes que Aleh chamou Erick de "chato"</td><td>Diretamente proporcional ao quanto ele a ama, ou seja, em alta constante</td></tr>
+      <tr><td>Vitórias do Flamengo defendidas por Erick em discussões com Aleh</td><td>Todas, oficialmente. Reconhecidas por Aleh, nenhuma.</td></tr>
+      <tr><td>Cachorros que Aleh tem atualmente</td><td>0</td></tr>
+      <tr><td>Cachorros que Aleh vai ter um dia, segundo promessa de Erick</td><td>Pelo menos 1</td></tr>
+      <tr><td>Quantidade de vezes que Erick pensou em Aleh durante a criação deste site</td><td>100% do tempo</td></tr>
+    </table>
+
+    <h2 id="sec-estudos">12. Estudos científicos sobre Aleh <span class="edit-link">[editar]</span></h2>
+
+    <div class="study">
+      <h4>Sobre a Frequência e Função Pragmática do Termo "Juro" em Contextos Conversacionais Cotidianos</h4>
+      <div class="meta">E. (autor não identificado oficialmente). Departamento de Estudos Avançados em Aleh-ologia, Universidade Informal do Coração, Salvador, BA. Publicado em junho de 2026.</div>
+      <h5>Resumo</h5>
+      <p>
+        O presente estudo busca compreender o uso recorrente da palavra "juro" no discurso cotidiano de uma jovem do Rio de Janeiro, doravante chamada de "sujeito A". A hipótese inicial é de que "juro" funciona como um reforço de veracidade aplicado de forma universal, independentemente do grau de necessidade real de comprovação.
+      </p>
+      <h5>Metodologia</h5>
+      <p>
+        Foram analisadas, de forma totalmente não sistemática, conversas diárias entre o sujeito A e o pesquisador, ao longo de um período iniciado em 19 de janeiro de 2026. Nenhum consentimento formal foi obtido, pois o sujeito A desconhece a existência desta pesquisa.
+      </p>
+      <h5>Resultados</h5>
+      <p>
+        Constatou-se que "juro" é utilizado em 100% dos casos analisados, mesmo quando a afirmação anterior já era evidente, esperada ou completamente óbvia. Em nenhum momento o termo foi necessário para que o pesquisador acreditasse no que estava sendo dito, visto que ele já acredita em absolutamente tudo que o sujeito A fala.
+      </p>
+      <h5>Conclusão</h5>
+      <p>
+        "Juro" não cumpre, na prática, função probatória. Sua real função é fonética e afetiva: soa bem, é dito com convicção, e faz o pesquisador sorrir sozinho, o que, para os fins deste estudo, é considerado resultado mais que suficiente.
+      </p>
+    </div>
+
+    <div class="study">
+      <h4>Análise Comparativa entre o "Mundo em Tons de Cinza" Pré-2026 e o "Mundo Colorido" Pós-Aleh</h4>
+      <div class="meta">E. Departamento de Estudos Avançados em Aleh-ologia, Universidade Informal do Coração, Salvador, BA. Publicado em junho de 2026.</div>
+      <h5>Resumo</h5>
+      <p>
+        Este estudo investiga relatos subjetivos de mudança de percepção de mundo associados à introdução de uma variável específica, identificada como "Aleh", na rotina do sujeito principal.
+      </p>
+      <h5>Metodologia</h5>
+      <p>
+        Comparação informal entre o estado emocional relatado pelo sujeito antes e depois de 19 de janeiro de 2026, com base unicamente em memória afetiva, sem qualquer controle experimental.
+      </p>
+      <h5>Resultados</h5>
+      <p>
+        Antes da introdução da variável, o sujeito descreve seu mundo como "sem cor". Após a introdução da variável, o mesmo sujeito relata que "ela chegou e colocou cor em tudo de repente"<sup class="cite">[11]</sup>. A transição foi descrita como abrupta, sem fase de transição gradual, sugerindo um efeito de impacto imediato e contínuo.
+      </p>
+      <h5>Discussão</h5>
+      <p>
+        Embora a ausência de grupo de controle impeça qualquer afirmação científica rigorosa, a magnitude do efeito relatado, e sua persistência ao longo de meses, sugerem que não se trata de um efeito passageiro, mas de uma mudança estrutural permanente na forma como o sujeito enxerga o próprio cotidiano.
+      </p>
+      <h5>Conclusão</h5>
+      <p>
+        Recomenda-se a continuidade da exposição à variável "Aleh" pelo maior tempo possível, idealmente, para o resto da vida do sujeito.
+      </p>
+    </div>
+
+    <div class="study">
+      <h4>Estudo Exploratório sobre a Rivalidade Botafogo–Flamengo como Fator de Coesão em Relacionamentos à Distância</h4>
+      <div class="meta">E. Departamento de Estudos Avançados em Aleh-ologia, Universidade Informal do Coração, Salvador, BA. Publicado em junho de 2026.</div>
+      <h5>Resumo</h5>
+      <p>
+        Investiga-se aqui o papel de uma rivalidade futebolística histórica como elemento recorrente, e aparentemente positivo, na dinâmica de um casal separado por aproximadamente 1.700 km.
+      </p>
+      <h5>Resultados</h5>
+      <p>
+        Verificou-se que discussões sobre qual time é melhor, embora frequentes, nunca resultaram em conflito real, apenas em trocas bem humoradas e, ocasionalmente, em vitórias unilateralmente declaradas pelo torcedor do Flamengo, sem reconhecimento por parte da torcedora do Botafogo.
+      </p>
+      <h5>Conclusão</h5>
+      <p>
+        A rivalidade Botafogo x Flamengo, neste caso específico, não funciona como fonte de divisão, mas como um dos muitos "assuntos infinitos" que mantêm as conversas do casal sempre vivas, mesmo à distância.
+      </p>
+    </div>
+
+    <h2 id="sec-legado">13. Legado <span class="edit-link">[editar]</span></h2>
+    <div class="legacy-box">
+      <p>
+        Se este artigo tivesse que ser resumido em uma única ideia, seria esta: antes de Aleh, o mundo de Erick estava sem cor. Não havia nada de errado com ele, simplesmente faltava algo, e ninguém sabia bem o quê. Então, em 19 de janeiro de 2026, sem aviso, sem cerimônia, sem fase de transição, ela chegou. E, de repente, tudo ganhou cor<sup class="cite">[11]</sup>.
+      </p>
+      <p>
+        Erick descreve Aleh como a pessoa que ele pediu a Deus, e que Deus entregou cedo demais para ele entender o tamanho do presente na hora<sup class="cite">[14]</sup>. Se há uma reclamação nesta enciclopédia inteira, é uma só: que a distância entre os dois pudesse ser um pouco menor. Tudo o mais, segundo ele, já está exatamente como deveria estar.
+      </p>
+      <p>
+        O legado de Aleh, portanto, não está em um único feito, mas em uma mudança contínua: na forma como Erick fala, no que ele pensa antes de dormir, nos sites que ele cria, nas piadas que ele guarda para contar pra ela, e nos planos que ele já faz para os dois, incluindo viagens, visitas, a chegada de um cachorro prometido, e, no horizonte mais distante e mais sério de todos, um casamento.
+      </p>
+      <p>
+        Para Aleh, caso ela esteja lendo isto agora: este site existe para deixar uma coisa registrada, em letras grandes, de forma oficial, do jeito mais "Wikipédia" possível. Com Erick, ela está segura. Sempre vai estar. E, mesmo que ele seja chato, mesmo que ele faça palhaçada, mesmo que more a 1.700 km de distância, ele está, e sempre vai estar, do lado dela.
+      </p>
+      <div class="script-line">
+        Feliz Dia dos Namorados, Leh. Te amo.
+      </div>
+    </div>
+
+    <h2 id="sec-vertambem">14. Ver também <span class="edit-link">[editar]</span></h2>
+    <ul>
+      <li>Botafogo de Futebol e Regatas</li>
+      <li>Rivalidade Flamengo x Botafogo (categoria: discussões eternas e divertidas)</li>
+      <li>MPB (Música Popular Brasileira)</li>
+      <li>Relacionamento à distância (categoria: sobrevivência bem sucedida)</li>
+      <li>Cães (sonho a ser realizado)</li>
+      <li>Erick (artigo correlato, qualidade da escrita ainda em discussão)</li>
+      <li>19 de janeiro de 2026 (ver "Datas importantes na história recente")</li>
+    </ul>
+
+    <h2 id="sec-referencias">15. Referências <span class="edit-link">[editar]</span></h2>
+    <ol class="references">
+      <li>Erick. Depoimento direto, declarado em diversas ocasiões, sem nenhuma intenção de revisão.</li>
+      <li>Observação contínua de conversas, sem amostragem, mas com bastante atenção.</li>
+      <li>Comparação informal entre "coisas que Erick gosta", realizada de forma não documentada, mas com resultado unânime.</li>
+      <li>Erick, sobre o período anterior a janeiro de 2026: "incompletos, mas com certeza incríveis".</li>
+      <li>Erick, sobre a torcida de Aleh pelo Botafogo: "ela odeia o Flamengo porque é melhor que o time dela".</li>
+      <li>Erick, sobre o amor de Aleh por cachorros e o desejo de presenteá-la com um no futuro.</li>
+      <li>Dados gerais sobre o TikTok como ponto de origem de relacionamentos na década de 2020.</li>
+      <li>Erick, sobre o início do relacionamento: "eu sempre estive no romance".</li>
+      <li>Erick, sobre as qualidades e os chamados "defeitos" de Aleh: "eu amo até o que ela acha que é defeito".</li>
+      <li>Erick, sobre os áudios de Aleh, listados entre as coisas que mais lhe trazem saudade.</li>
+      <li>Erick, sobre o efeito de Aleh em sua vida: "meu mundo estava sem cor, ela chegou e colocou cor em tudo de repente".</li>
+      <li>Hipótese não testada sobre a reação de Aleh diante de "espíritos imundos", mantida apenas como curiosidade especulativa.</li>
+      <li>Erick, sobre as conversas do casal: "todas as nossas conversas são bobas e engraçadas".</li>
+      <li>Erick, sobre Aleh: "ela é a garota que eu pedi pra Deus, e Deus me entregou cedo".</li>
+    </ol>
+
+    <div class="categories">
+      <span class="tag">Pessoas extraordinárias</span>
+      <span class="tag">Namoradas perfeitas</span>
+      <span class="tag">Botafogo</span>
+      <span class="tag">Rio de Janeiro</span>
+      <span class="tag">Relacionamentos à distância bem sucedidos</span>
+      <span class="tag">Futuras esposas</span>
+      <span class="tag">Pessoas que tornaram o mundo colorido</span>
+    </div>
+
+  </main>
+</div>
+
+<div class="page-footer">
+  Esta página foi editada pela última vez em 12 de junho de 2026, por Erick, e continuará sendo editada para sempre.<br>
+  O conteúdo está disponível sob a licença "Para todo o sempre, sem alterações", salvo indicação em contrário.
+</div>
+
+<script>
+  // pétalas roxas flutuando suavemente, com moderação
+  const colors = ['#cdb8e6', '#b79fd6', '#e2d4ea'];
+  const symbols = ['❀', '✦', '♥'];
+  const total = 14;
+
+  for (let i = 0; i < total; i++) {
+    const el = document.createElement('div');
+    el.className = 'petal';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (0.7 + Math.random() * 1.1) + 'rem';
+    el.style.color = colors[Math.floor(Math.random() * colors.length)];
+    const duration = 14 + Math.random() * 16;
+    el.style.animationDuration = duration + 's';
+    el.style.animationDelay = (-Math.random() * duration) + 's';
+    document.body.appendChild(el);
+  }
+</script>
+
+</body>
+</html>
